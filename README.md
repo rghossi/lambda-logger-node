@@ -77,14 +77,14 @@ To simplify usage of the logger throughout your application configure a logger i
 const config = require('./config')
 const { Logger } = require('lambda-logger-node')
 const logger = Logger({
-  minimumLogLevel = config.isProduction ? 'INFO' : null
+  minimumLogLevel: config.isProduction ? 'INFO' : null
 })
 
 module.exports = logger
 
 // lambda.js
 const logger = require('./logger')
-exports.handler = logger(handler)
+exports.handler = logger.handler(handler)
 async function handler (event, context) {
   // your lambda handler
 }
